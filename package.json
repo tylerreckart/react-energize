@@ -1,7 +1,7 @@
 {
-  "name": "Energize",
-  "version": "0.0.1",
-  "description": "Energize is a utility library for React that let's you inject state and use lifecycle methods in purely functional components",
+  "name": "react-energize",
+  "version": "0.0.2",
+  "description": "react-energize is a utility library for React that let's you inject state and use lifecycle methods in purely functional components",
   "main": "src/index.js",
   "repository": "https://github.com/tylerreckart/energon",
   "author": "Tyler Reckart <tyler.reckart@gmail.com>",
