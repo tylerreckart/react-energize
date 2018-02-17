@@ -1,7 +1,7 @@
 # react-energize
 Universal HOC for injecting state and using lifecycle methods in stateless components
 
-![CircleCI](https://circleci.com/gh/tylerreckart/react-energize.svg?style=svg) ![npm version](https://badge.fury.io/js/react-energize.svg) ![License](https://camo.githubusercontent.com/b4ffb1cf6bd5c0dcc6ec71502aac345d6c0b6928/68747470733a2f2f696d672e736869656c64732e696f2f6e706d2f6c2f7572716c2e737667)
+[![CircleCI](https://circleci.com/gh/tylerreckart/react-energize.svg?style=svg)](https://circleci.com/gh/tylerreckart/react-energize) ![npm version](https://badge.fury.io/js/react-energize.svg) ![License](https://camo.githubusercontent.com/b4ffb1cf6bd5c0dcc6ec71502aac345d6c0b6928/68747470733a2f2f696d672e736869656c64732e696f2f6e706d2f6c2f7572716c2e737667)
 
 ![Energize!](https://media.giphy.com/media/QhcPmeqippizS/giphy.gif)
 
@@ -49,7 +49,7 @@ const StatelessComponent = ({ state, setState }) => {
   return (
     <div>
       <button onClick={() => setState(state => ({ count: state.count - 1 }))}>-</button>
-      {state.count}
+      {' '}{state.count}{' '}
       <button onClick={() => setState(state => ({ count: state.count + 1 }))}>+</button>
     </div>
   );
