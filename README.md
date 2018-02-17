@@ -12,7 +12,7 @@ Universal react utility library for injecting state and using lifecycle methods 
 - [API](#api)
 
 ## What is `react-energize`
-`react-energize` is a higher-order component, or [HOC](https://reactjs.org/docs/higher-order-components.html) that allows you to inject state or utilize lifecycle methods when working with stateless components.
+`react-energize` is a [higher-order component](https://reactjs.org/docs/higher-order-components.html) that allows you to inject state or utilize lifecycle methods when working with stateless components.
 
 ## Why this Exists
 When working with stateless components in React, you'll sometimes find yourself wanted to call a lifecycle method or inject a small piece of state into your component without having to completely rewrite the component.
