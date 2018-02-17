@@ -1,8 +1,9 @@
 # react-energize
 Universal react utility library for injecting state and using lifecycle methods in stateless components
-![License](https://camo.githubusercontent.com/b4ffb1cf6bd5c0dcc6ec71502aac345d6c0b6928/68747470733a2f2f696d672e736869656c64732e696f2f6e706d2f6c2f7572716c2e737667)
 
-![Energize!](https://media.giphy.com/media/ZeRGyXY34jiVy/giphy.gif)
+![npm version](https://badge.fury.io/js/react-energize.svg) ![License](https://camo.githubusercontent.com/b4ffb1cf6bd5c0dcc6ec71502aac345d6c0b6928/68747470733a2f2f696d672e736869656c64732e696f2f6e706d2f6c2f7572716c2e737667)
+
+![Energize!](https://media.giphy.com/media/QhcPmeqippizS/giphy.gif)
 
 - [What is `react-energize`](#what-is-energize)
 - [Why this exists](#why-this-exists)
@@ -11,10 +12,10 @@ Universal react utility library for injecting state and using lifecycle methods 
 - [API](#api)
 
 ## What is `react-energize`
-`react-energize` is, at it's core, a [higher-order compnoent](https://reactjs.org/docs/higher-order-components.html) that allows you to inject state or utilize lifecycle methods when working with stateless components.
+`react-energize` is, at it's core, a [HOC](https://reactjs.org/docs/higher-order-components.html) that allows you to inject state or utilize lifecycle methods when working with stateless components.
 
 ## Why this Exists
-Well, as you know, when working with stateless components in React, you'll sometimes find yourself wanted to call a lifecycle method or inject a small piece of state into your component without having to write it from the ground up. That's what `energize` allows you to do.
+Well, as you know, when working with stateless components in React, you'll sometimes find yourself wanted to call a lifecycle method or inject a small piece of state into your component without having to completely rewrite the component.
 
 ## Install
 ```sh
@@ -23,6 +24,7 @@ yarn add react-energize
 
 And then import it:
 ```js
+import React from 'react';
 import Energize from 'react-energize';
 
 const StatelessComponent = ({ state }) => (
@@ -40,23 +42,33 @@ export default Energize(StatelessComponent, initialState);
 As you can see in the example above, injecting state into a component with Energize is extremely easy. Utilizing React's lifecycle methods is just as easy.
 
 ```js
+import React from 'react';
 import Energize from 'react-energize';
 
-const StatelessComponent = ({ state }) => (
-  <div>
-    <p>Hello, {state.string}</p>
-  </div>
-);
+const StatelessComponent = ({ state, setState }) => {
+  return (
+    <div>
+      <button onClick={() => setState(state => ({ count: state.count - 1 }))}>-</button>
+      {state.count}
+      <button onClick={() => setState(state => ({ count: state.count + 1 }))}>+</button>
+    </div>
+  );
+};
 
-const initialState = { string: 'world' };
+const componentWillMount = () => {
+  window.alert('componentWillMount()');
+};
 
 const componentDidMount = () => {
-  window.alert('componentDidMount() {}');
-}
+  console.log('componentDidMount()');
+};
 
 const lifeCycleMethods = {
+  componentWillMount,
   componentDidMount,
 };
+
+const initialState = { count: 0 };
 
 export default Energize(StatelessComponent, initialState, lifeCycleMethods);
 ```
@@ -75,4 +87,5 @@ export default Energize(StatelessComponent, initialState, lifeCycleMethods);
 | [`componentWillUpdate(nextProps, nextState)`](https://reactjs.org/docs/react-component.html#componentwillupdate) |
 | [`componentDidUpdate(prevProps, prevState)`]() |
 | [`componentWillUnmount()`]() |
-| [`componentDidCatch(error, info)`]() |
+| [`setState`]() |
+| [`forceUdate()`]() |

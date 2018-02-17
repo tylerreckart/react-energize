@@ -1,24 +1,29 @@
 import React from 'react';
-import Energize from '../../src/index.js';
+import Energize from '../../src';
 
-const StatelessComponent = props => {
+const StatelessComponent = ({ state, setState }) => {
   return (
     <div>
-      <p>Hello, {props.state.string}</p>
+      <button onClick={() => setState(state => ({ count: state.count - 1 }))}>-</button>
+      {state.count}
+      <button onClick={() => setState(state => ({ count: state.count + 1 }))}>+</button>
     </div>
   );
 };
 
+const componentWillMount = () => {
+  window.alert('componentWillMount()');
+};
+
 const componentDidMount = () => {
-  console.log('mounted');
+  console.log('componentDidMount()');
 };
 
 const lifeCycleMethods = {
+  componentWillMount,
   componentDidMount,
 };
 
-const initialState = {
-  string: 'world',
-};
+const initialState = { count: 0 };
 
 export default Energize(StatelessComponent, initialState, lifeCycleMethods);
