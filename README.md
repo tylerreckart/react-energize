@@ -12,10 +12,10 @@ Universal react utility library for injecting state and using lifecycle methods 
 - [API](#api)
 
 ## What is `react-energize`
-`react-energize` is, at it's core, a [HOC](https://reactjs.org/docs/higher-order-components.html) that allows you to inject state or utilize lifecycle methods when working with stateless components.
+`react-energize` is a higher-order component, or [HOC](https://reactjs.org/docs/higher-order-components.html) that allows you to inject state or utilize lifecycle methods when working with stateless components.
 
 ## Why this Exists
-Well, as you know, when working with stateless components in React, you'll sometimes find yourself wanted to call a lifecycle method or inject a small piece of state into your component without having to completely rewrite the component.
+When working with stateless components in React, you'll sometimes find yourself wanted to call a lifecycle method or inject a small piece of state into your component without having to completely rewrite the component.
 
 ## Install
 ```sh
@@ -85,7 +85,13 @@ export default Energize(StatelessComponent, initialState, lifeCycleMethods);
 | [`componentWillRecieveProps(nextProps)`](https://reactjs.org/docs/react-component.html#componentwillreceiveprops) |
 | [`shouldComponentUpdate(nextProps, nextState)`](https://reactjs.org/docs/react-component.html#shouldcomponentupdate) |
 | [`componentWillUpdate(nextProps, nextState)`](https://reactjs.org/docs/react-component.html#componentwillupdate) |
-| [`componentDidUpdate(prevProps, prevState)`]() |
-| [`componentWillUnmount()`]() |
-| [`setState`]() |
-| [`forceUdate()`]() |
+| [`componentDidUpdate(prevProps, prevState)`](https://reactjs.org/docs/react-component.html#componentdidupdate) |
+| [`componentWillUnmount()`](https://reactjs.org/docs/react-component.html#componentwillunmount) |
+| [`componentDidCatch()`](https://reactjs.org/docs/react-component.html#componentdidcatch) |
+| [`setState`](https://reactjs.org/docs/react-component.html#setstate) |
+| [`forceUdate()`](https://reactjs.org/docs/react-component.html#forceupdate) |
+
+## License
+Released under the MIT License.
+
+Copyright &copy; 2018 - present Tyler Reckart
