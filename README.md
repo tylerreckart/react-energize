@@ -17,10 +17,6 @@ Universal HOC for injecting state and using lifecycle methods in stateless compo
 ## Why this Exists
 When working with stateless components in React, you'll sometimes find yourself wanted to call a lifecycle method or inject a small piece of state into your component without having to completely rewrite the component.
 
-## [Demo](https://react-energize.now.sh)
-
-See a live example and experiment with the code.
-
 ## Install
 ```sh
 yarn add react-energize
