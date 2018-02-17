@@ -1,17 +1,17 @@
 const path = require('path');
 
 module.exports = {
-  entry: ["./example/src/index.js"],
+  entry: ['./src/index.js'],
 
-  devServer: {
-    contentBase: path.join(__dirname, "example"),
-    compress: true,
-    port: 8080
+  resolve: {
+    extensions: ['.js', '.jsx']
   },
 
   output: {
-    path: path.resolve(__dirname, "./example/build"),
-    filename: "bundle.js"
+    path: path.resolve(__dirname, './lib'),
+    filename: 'index.js',
+    libraryTarget: 'commonjs2',
+    library: 'react-energize',
   },
 
   module: {
@@ -19,11 +19,22 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
+        include: path.resolve(__dirname, 'src'),
         use: {
-          loader: "babel-loader"
+          loader: 'babel-loader',
+          options: {
+            presets: [
+              '@babel/preset-env',
+              '@babel/preset-react'
+            ]
+          }
         }
       }
     ]
+  },
+
+  externals: {
+    'react': 'commonjs react'
   }
 };
 
